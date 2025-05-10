@@ -1,9 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
 import { StorageService } from './storage.service';
+import {TvShowIds} from "./types";
 
 describe('StorageService', () => {
-  let service: StorageService;
+  let service: StorageService<TvShowIds>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
