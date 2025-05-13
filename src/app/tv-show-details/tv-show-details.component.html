@@ -1,0 +1,16 @@
+@if (tvShow) {
+  <div>
+    <h2>{{ tvShow.name }} - {{ tvShow.country }} - {{ tvShow.start_date | date: 'yyyy' }}</h2>
+    <div>
+      <img [src]="tvShow.image_thumbnail_path" [alt]="tvShow.name" />
+    </div>
+    <div [outerHTML]="tvShow.description">
+    </div>
+    <div>
+      Rating: {{ tvShow.rating | number:'1.2-2' }}/10 (rated by {{ tvShow.rating_count }} people)
+    </div>
+    <div>
+       <button routerLink="/"><< Back</button>
+    </div>
+  </div>
+}

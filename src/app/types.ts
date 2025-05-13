@@ -9,12 +9,35 @@ export interface TvShow {
   id:                   number;
   name:                 string;
   permalink:            string;
-  start_date:           string;
+  url:                  string;
+  description:          string;
+  description_source:   null;
+  start_date:           string | Date;
   end_date:             null | string;
   country:              string;
-  network:              string;
   status:               Status;
+  runtime:              number;
+  network:              string;
+  youtube_link:         null;
+  image_path:           string;
   image_thumbnail_path: string;
+  rating:               string;
+  rating_count:         number;
+  countdown:            Countdown;
+  genres:               string[];
+  pictures:             string[];
+  episodes:             Countdown[];
+}
+
+export interface TvShowDetails {
+  tvShow: TvShow;
+}
+
+export interface Countdown {
+  season:   number;
+  episode:  number;
+  name:     string;
+  air_date: Date;
 }
 
 export type Status = 'Canceled/Ended' | 'Ended' | 'Running' | 'New Series' | 'To Be Determined';
