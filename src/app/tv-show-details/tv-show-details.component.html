@@ -16,6 +16,11 @@
   <div class="row">
     <div class="col-sm-12">
       <h5>Rating: {{ showDetails.rating | number: '1.0-2' }}/10 (rated by {{ showDetails.rating_count }} people)</h5>
+      <p>
+        {{ showDetails.episodes.length | i18nPlural: { '=0': 'No episode', '=1': '1 episode', 'other': '# episodes' } }}
+        -
+        {{ tvShowDetailsService.seasonCount() | i18nPlural: { '=0': 'No season', '=1': '1 season', 'other': '# seasons' } }}
+      </p>
     </div>
   </div>
 </div>

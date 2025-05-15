@@ -1,13 +1,15 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { TvShowDetails } from '../types';
-import { DatePipe, DecimalPipe } from '@angular/common';
+import { DatePipe, DecimalPipe, I18nPluralPipe } from '@angular/common';
+import { TvShowDetailsService } from '../tv-show-details.service';
 
 @Component({
   selector: 'app-tv-show-details',
   standalone: true,
   imports: [
     DatePipe,
-    DecimalPipe
+    DecimalPipe,
+    I18nPluralPipe
   ],
   templateUrl: './tv-show-details.component.html',
   styleUrl: './tv-show-details.component.css'
@@ -15,6 +17,8 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 export class TvShowDetailsComponent {
   @Input()
   showDetails!: TvShowDetails;
+
+  protected tvShowDetailsService = inject(TvShowDetailsService);
 
   back() {
     history.back();
