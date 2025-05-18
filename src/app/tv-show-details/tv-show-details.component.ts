@@ -1,18 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { TvShowDetails } from '../types';
-import { DatePipe, DecimalPipe } from '@angular/common';
+import { DatePipe, DecimalPipe, I18nPluralPipe } from '@angular/common';
 
 @Component({
   selector: 'app-tv-show-details',
   standalone: true,
   imports: [
     DatePipe,
-    DecimalPipe
+    DecimalPipe,
+    I18nPluralPipe
   ],
   templateUrl: './tv-show-details.component.html',
   styleUrl: './tv-show-details.component.css'
 })
-export class TvShowDetailsComponent {
+export default class TvShowDetailsComponent {
   @Input()
   showDetails!: TvShowDetails;
 
