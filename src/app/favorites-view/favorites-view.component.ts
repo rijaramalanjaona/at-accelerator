@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FavoritesViewService } from '../favorites-view.service';
+import { FavoritesService } from '../favorites.service';
 
 @Component({
   selector: 'app-favorites-view',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites-view.component.css']
 })
 export class FavoritesViewComponent {
-
+  protected favoritesViewService = inject(FavoritesViewService);
+  protected favoritesService = inject(FavoritesService);
 }

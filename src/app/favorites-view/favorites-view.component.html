@@ -1,1 +1,16 @@
-<p>favorites-view works!</p>
+@for (show of favoritesViewService.source$ | async; track show.id) {
+  <p>{{ show.id }}</p>
+  <p>{{ show.name }}</p>
+  <p>
+    <span class="icon-info" [routerLink]="['/details', show.id]"></span>
+    <span class="icon-bookmark"
+          [class.highlight]="favoritesService.favorites().includes(show.id)"
+          (click)="favoritesService.toggleFavorite(show.id)">
+    </span>
+  </p>
+  <div>
+    <img [src]="show.image_thumbnail_path" [alt]="show.name" />
+  </div>
+  <p>Next episode : {{ show.countdown?.air_date | date }}</p>
+  <hr />
+}

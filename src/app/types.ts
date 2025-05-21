@@ -45,3 +45,5 @@ export type Status = 'Canceled/Ended' | 'Ended' | 'Running' | 'New Series' | 'To
 export type TvShowId = TvShow['id']; // This is better than number
 
 export type TvShowIds = Array<TvShowId>; // This is easier to read
+
+export type StatusPriority = Record<Status, number>;
