@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TvShowDetailsService } from '../tv-show-details.service';
 
 @Component({
   selector: 'app-favorites-view',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./favorites-view.component.css']
 })
 export class FavoritesViewComponent {
-
+  protected showDetails$ = inject(TvShowDetailsService).allTvShowDetails$;
 }

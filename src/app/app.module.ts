@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FavoritesViewComponent } from './favorites-view/favorites-view.component';
 import { provideHttpClient } from '@angular/common/http';
+import { FavoriteCardComponent } from './favorite-card/favorite-card.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { provideHttpClient } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FavoriteCardComponent
   ],providers: [
     provideHttpClient()
   ],
