@@ -12,8 +12,8 @@ import { FavoritesService } from './favorites.service';
 export class TvShowDetailsService {
   private http = inject(HttpClient);
   private favorites$ = toObservable(inject(FavoritesService).favorites);
-  readonly allTvShowDetails$: Observable<TvShowDetails[] | null> = this.favorites$.pipe(
-    switchMap(showIds => showIds.length > 0 ? this.getAllTvShowDetails(showIds) : of(null)),
+  readonly allTvShowDetails$: Observable<TvShowDetails[]> = this.favorites$.pipe(
+    switchMap(showIds => showIds.length > 0 ? this.getAllTvShowDetails(showIds) : of([])),
     shareReplay(1)
   );
 
