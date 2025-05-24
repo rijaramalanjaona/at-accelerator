@@ -1,22 +1,21 @@
-import { Component, inject, Input } from '@angular/core';
-import { FavoritesService } from '../favorites.service';
+import { Component, Input } from '@angular/core';
 import { TvShowDetails } from '../types';
-import { RouterLink } from "@angular/router";
-import { DatePipe } from "@angular/common";
+import { RouterLink } from '@angular/router';
+import { CountdownPipe } from '../countdown.pipe';
+import { ToogleFavoriteDirective } from '../toogle-favorite.directive';
 
 @Component({
   selector: 'app-favorite-card',
   standalone: true,
   imports: [
     RouterLink,
-    DatePipe
+    CountdownPipe,
+    ToogleFavoriteDirective
   ],
   templateUrl: './favorite-card.component.html',
   styleUrl: './favorite-card.component.css'
 })
 export class FavoriteCardComponent {
-  protected favoritesService = inject(FavoritesService);
-
   @Input({required: true})
   tvShowDetails!: TvShowDetails;
 }
