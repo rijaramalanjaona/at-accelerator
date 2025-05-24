@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TvShowDetails, TvShowId, TvShowIds } from './types';
-import { forkJoin, map, Observable, shareReplay, switchMap } from 'rxjs';
+import { forkJoin, map, Observable, of, shareReplay, switchMap } from 'rxjs';
 import { API_URL } from './app.constants';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { FavoritesService } from './favorites.service';
@@ -13,7 +13,7 @@ export class TvShowDetailsService {
   private http = inject(HttpClient);
   private favorites$ = toObservable(inject(FavoritesService).favorites);
   readonly allTvShowDetails$: Observable<TvShowDetails[]> = this.favorites$.pipe(
-    switchMap(showIds => this.getAllTvShowDetails(showIds)),
+    switchMap(showIds => showIds.length > 0 ? this.getAllTvShowDetails(showIds) : of([])),
     shareReplay(1)
   );
 
