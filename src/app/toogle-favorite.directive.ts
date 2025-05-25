@@ -1,4 +1,4 @@
-import { Directive, HostBinding, HostListener, inject, Input } from '@angular/core';
+import { Directive, effect, HostBinding, HostListener, inject, Input } from '@angular/core';
 import { TvShowId } from './types';
 import { FavoritesService } from './favorites.service';
 
@@ -9,20 +9,18 @@ import { FavoritesService } from './favorites.service';
 export class ToogleFavoriteDirective {
   private favoritesService = inject(FavoritesService);
 
-  _tvShowId!: TvShowId;
+  constructor() {
+    effect(() => this.hasHighlight = this.favoritesService.favorites().includes(this.tvShowId));
+  }
 
   @Input()
-  set tvShowId(value: TvShowId) {
-    this._tvShowId = value;
-    this.hasHighlight = this.favoritesService.favorites().includes(this._tvShowId);
-  }
+  tvShowId!: TvShowId;
 
   @HostBinding('class.highlight')
   hasHighlight = false;
 
   @HostListener('click')
   click(): void {
-    this.favoritesService.toggleFavorite(this._tvShowId);
-    this.hasHighlight = this.favoritesService.favorites().includes(this._tvShowId);
+    this.favoritesService.toggleFavorite(this.tvShowId);
   }
 }
