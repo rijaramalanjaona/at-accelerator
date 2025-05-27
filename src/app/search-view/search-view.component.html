@@ -14,6 +14,11 @@
     <div class="row">
       <div class="col-sm-12">
         <app-tv-show-table [shows]="data()" [isLoading]="searchService.isSearching()"></app-tv-show-table>
+        <app-paginator
+          [page]="searchService.page()"
+          [pages]="searchService.pages()"
+          (pageChangeEmitter)="changePage($event)">
+        </app-paginator>
       </div>
   </div>
 </div>
