@@ -14,7 +14,7 @@
         <div class="spinner primary"></div>
       </div>
     }
-    @for (show of shows; track show.id) {
+    @for (show of showsData.tv_shows; track show.id) {
       <tr>
         <td data-label="Name">{{ show.name }}</td>
         <td data-label="Country">{{ show.country }}</td>
@@ -30,3 +30,10 @@
     }
   </tbody>
 </table>
+
+<app-paginator
+  *ngIf="showsData.pages > 1"
+  [pageNumber]="showsData.page"
+  [totalPages]="showsData.pages"
+  (pageChange)="pageChange.emit($event)">
+</app-paginator>
