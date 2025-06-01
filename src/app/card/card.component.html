@@ -1,0 +1,12 @@
+<div class="card large">
+  <div class="section">
+    <div class="row">
+        <ng-content select="[id='card-header-title']"></ng-content>
+        <ng-content select="[id='card-header-actions']"></ng-content>
+    </div>
+  </div>
+  <ng-content select="[id='card-body']"></ng-content>
+  <div class="section">
+    <ng-content select="[id='card-footer']"></ng-content>
+  </div>
+</div>

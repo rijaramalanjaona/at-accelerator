@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TvShowDetails } from '../types';
 import { DatePipe, DecimalPipe, I18nPluralPipe } from '@angular/common';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-tv-show-details',
@@ -8,7 +9,8 @@ import { DatePipe, DecimalPipe, I18nPluralPipe } from '@angular/common';
   imports: [
     DatePipe,
     DecimalPipe,
-    I18nPluralPipe
+    I18nPluralPipe,
+    CardComponent
   ],
   templateUrl: './tv-show-details.component.html',
   styleUrl: './tv-show-details.component.css'

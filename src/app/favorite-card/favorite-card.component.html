@@ -1,17 +1,13 @@
-<div class="card large">
-  <div class="section">
-    <div class="row">
-      <div class="col-md-11">
-        <h2>{{ tvShowDetails.name }}</h2>
-      </div>
-      <div class="col-md-1">
-        <span class="icon-info" routerLink="/details/{{ tvShowDetails.id }}"></span>
-        <span class="icon-bookmark" [appToggleFavorite]="tvShowDetails.id"></span>
-      </div>
-    </div>
+<app-card>
+  <div class="col-md-11" id="card-header-title">
+    <h2>{{ tvShowDetails.name }}</h2>
   </div>
-  <img [src]="tvShowDetails.image_path" class="section media"/>
-  <div class="section">
+  <div class="col-md-1" id="card-header-actions">
+    <span class="icon-info" routerLink="/details/{{ tvShowDetails.id }}"></span>
+    <span class="icon-bookmark" [appToggleFavorite]="tvShowDetails.id"></span>
+  </div>
+  <img id="card-body" [src]="tvShowDetails.image_path" class="section media"/>
+  <div id="card-footer">
     {{ tvShowDetails | countdown }}
   </div>
-</div>
+</app-card>

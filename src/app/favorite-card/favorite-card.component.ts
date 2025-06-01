@@ -3,6 +3,7 @@ import { TvShowDetails } from '../types';
 import { RouterLink } from '@angular/router';
 import { ToggleFavoriteDirective } from '../toggle-favorite.directive';
 import { CountdownPipe } from '../countdown.pipe';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-favorite-card',
@@ -10,7 +11,8 @@ import { CountdownPipe } from '../countdown.pipe';
   imports: [
     RouterLink,
     ToggleFavoriteDirective,
-    CountdownPipe
+    CountdownPipe,
+    CardComponent
   ],
   templateUrl: './favorite-card.component.html',
   styleUrl: './favorite-card.component.css'
